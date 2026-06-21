@@ -103,3 +103,32 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .orbit-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-phone-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orbit-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-phone-glow {
+    width: 180px;
+    height: 180px;
+  }
+}
