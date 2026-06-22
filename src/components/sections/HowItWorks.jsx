@@ -11,7 +11,7 @@ function ConnectVisual() {
     <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[340px] flex items-center justify-center overflow-hidden">
       <div className="absolute w-[240px] h-[240px] sm:w-[260px] sm:h-[260px] rounded-full border border-brand/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute w-[166px] h-[166px] sm:w-[180px] sm:h-[180px] rounded-full border border-dashed border-brand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand to-violet flex items-center justify-center z-10 shadow-[0_0_40px_rgba(108,99,255,0.55)] relative">
+      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1a1929] to-[#0d0c1c] flex items-center justify-center z-10 shadow-[0_0_40px_rgba(108,99,255,0.55)] relative">
         <LogoIcon size={28} />
       </div>
       {apps.map((app, i) => {
@@ -40,7 +40,7 @@ function SetupVisual() {
           "슬랙에서 NOVA 멘션이 오면 자동으로 지메일로 요약을 보내줘"
         </div>
         <div className="flex items-start gap-2.5">
-          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-brand to-violet flex items-center justify-center shrink-0 mt-0.5">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#1a1929] to-[#0d0c1c] flex items-center justify-center shrink-0 mt-0.5">
             <LogoIcon size={10} />
           </div>
           <div className="flex-1 bg-brand/[0.12] rounded-xl p-3.5 border border-brand/15">

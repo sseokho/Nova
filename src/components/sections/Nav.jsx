@@ -9,7 +9,7 @@ export default function Nav({ navRef }) {
       style={{ backgroundColor: 'rgba(8,8,16,0.72)' }}
     >
       <div className="flex items-center gap-2.5">
-        <div className="w-7 h-7 rounded-[7px] flex items-center justify-center bg-gradient-to-br from-brand to-violet">
+        <div className="w-7 h-7 rounded-[7px] flex items-center justify-center bg-gradient-to-br from-[#1a1929] to-[#0d0c1c]">
           <LogoIcon />
         </div>
         <span className="font-['Space_Grotesk'] font-bold text-[17px] tracking-[0.5px] text-[#f0efff]">NOVA</span>
