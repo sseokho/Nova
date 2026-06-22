@@ -91,7 +91,13 @@ export default function App() {
             onUpdate(self) {
               const activeIdx = Math.min(HOW_STEPS.length - 1, Math.floor(self.progress * HOW_STEPS.length))
               self.trigger.querySelectorAll('[data-step-dot]').forEach((dot, i) => {
-                gsap.to(dot, { scaleX: i === activeIdx ? 1.6 : 1, opacity: i === activeIdx ? 1 : 0.3, duration: 0.25, overwrite: 'auto' })
+                const active = i === activeIdx
+                gsap.to(dot, {
+                  opacity: active ? 1 : 0.3,
+                  backgroundColor: active ? '#a78bfa' : 'rgba(255,255,255,0.3)',
+                  duration: 0.25,
+                  overwrite: 'auto',
+                })
               })
             },
           },
@@ -167,6 +173,45 @@ export default function App() {
           scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
         })
       })
+
+      /* 11 ── Float / pulse animations (replaces CSS keyframes) */
+
+      // Hero PC mockup float
+      const pcMockup = rootRef.current.querySelector('.animate-float-pc')
+      if (pcMockup) gsap.to(pcMockup, { y: -16, duration: 4, ease: 'sine.inOut', repeat: -1, yoyo: true })
+
+      // Hero phone floats
+      gsap.utils.toArray('.animate-float-b', rootRef.current).forEach((el, i) => {
+        gsap.set(el, { rotation: -4 })
+        gsap.to(el, { y: -14, duration: 3, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.8 })
+      })
+
+      // Gallery phone floats
+      const gDefs = [
+        { cls: '.animate-float-g1', rot: -7, y: -12, dur: 3    },
+        { cls: '.animate-float-g2', rot:  1, y: -16, dur: 2.75 },
+        { cls: '.animate-float-g3', rot:  7, y: -10, dur: 3.25 },
+      ]
+      gDefs.forEach(({ cls, rot, y, dur }, i) => {
+        const el = rootRef.current.querySelector(cls)
+        if (el) {
+          gsap.set(el, { rotation: rot })
+          gsap.to(el, { y, duration: dur, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.5 })
+        }
+      })
+
+      // Hero glow pulse
+      gsap.utils.toArray('.hero-phone-glow', rootRef.current).forEach(el =>
+        gsap.fromTo(el,
+          { opacity: 0.45, scale: 1 },
+          { opacity: 0.85, scale: 1.1, duration: 2.5, ease: 'sine.inOut', repeat: -1, yoyo: true }
+        )
+      )
+
+      // Active status dot pulse (Gallery)
+      gsap.utils.toArray('.animate-pulse-glow', rootRef.current).forEach(el =>
+        gsap.to(el, { opacity: 0.3, scale: 0.75, duration: 1, ease: 'sine.inOut', repeat: -1, yoyo: true })
+      )
 
     }, rootRef)
 

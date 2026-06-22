@@ -4,9 +4,6 @@
   --color-brand:   #6c63ff;
   --color-violet:  #a78bfa;
   --color-crystal: #c4b5fd;
-  --color-nova:    #f0efff;
-  --color-bg:      #080810;
-  --color-screen:  #09091a;
 }
 
 /* ── Base ── */
@@ -83,26 +80,6 @@ a, button { cursor: none; }
 }
 
 /* ── Keyframes ── */
-@keyframes float-b {
-  0%, 100% { transform: translateY(0px) rotate(-4deg); }
-  50%       { transform: translateY(-14px) rotate(-4deg); }
-}
-@keyframes float-g1 {
-  0%, 100% { transform: translateY(0px) rotate(-7deg); }
-  50%       { transform: translateY(-12px) rotate(-7deg); }
-}
-@keyframes float-g2 {
-  0%, 100% { transform: translateY(0px) rotate(1deg); }
-  50%       { transform: translateY(-16px) rotate(1deg); }
-}
-@keyframes float-g3 {
-  0%, 100% { transform: translateY(0px) rotate(7deg); }
-  50%       { transform: translateY(-10px) rotate(7deg); }
-}
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50%       { opacity: 0.9; transform: scale(1.05); }
-}
 @keyframes shimmer-text {
   0%   { background-position: 0% center; }
   100% { background-position: 200% center; }
@@ -146,12 +123,13 @@ a, button { cursor: none; }
   background-clip: text;
   animation: shimmer-text 4s linear infinite;
 }
-@utility animate-float-b  { animation: float-b  6s   ease-in-out infinite; }
-@utility animate-float-g1 { animation: float-g1 6s   ease-in-out infinite; }
-@utility animate-float-g2 { animation: float-g2 5.5s ease-in-out infinite; }
-@utility animate-float-g3 { animation: float-g3 6.5s ease-in-out infinite; }
-@utility animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
-@utility animate-orbit { animation: orbit 8s linear infinite; }
+/* float / pulse utilities — animation handled by GSAP, classes kept as selectors */
+@utility animate-float-b   { will-change: transform; }
+@utility animate-float-g1  { will-change: transform; }
+@utility animate-float-g2  { will-change: transform; }
+@utility animate-float-g3  { will-change: transform; }
+@utility animate-float-pc  { will-change: transform; }
+@utility animate-pulse-glow { will-change: transform, opacity; }
 
 /* ── Scroll reveal — initial state (GSAP animates to visible) ── */
 .reveal { opacity: 0; transform: translateY(36px); }
@@ -187,23 +165,23 @@ a, button { cursor: none; }
 }
 .hero-phone-glow {
   position: absolute;
-  width: 360px; height: 360px;
+  width: 580px; height: 580px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(108,99,255,0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(108,99,255,0.3) 0%, transparent 70%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse-glow 4s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 @media (max-width: 768px) {
   .orbit-ring { width: 180px; height: 180px; }
-  .hero-phone-glow { width: 220px; height: 220px; }
+  .hero-phone-glow { width: 380px; height: 380px; }
   .orbit-dot { width: 8px; height: 8px; }
   .cursor-dot, .cursor-ring { display: none; }
   body, a, button { cursor: auto; }
 }
 @media (max-width: 480px) {
   .orbit-ring { width: 140px; height: 140px; }
-  .hero-phone-glow { width: 180px; height: 180px; }
+  .hero-phone-glow { width: 300px; height: 300px; }
 }

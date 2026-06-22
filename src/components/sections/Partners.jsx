@@ -7,9 +7,12 @@ export default function Partners({ marqueeRef }) {
         전 세계 선도 기업들이 선택한 NOVA
       </p>
       <div className="overflow-hidden">
-        <div ref={marqueeRef} className="flex w-max">
+        <div ref={marqueeRef} className="flex items-center w-max">
           {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((name, i) => (
-            <span key={i} className="opacity-25 font-['Space_Grotesk'] font-bold text-base sm:text-lg tracking-[1px] px-6 sm:px-10 shrink-0">{name}</span>
+            <div key={i} className="flex items-center shrink-0">
+              <span className="opacity-30 font-['Space_Grotesk'] font-bold text-sm sm:text-base tracking-[2px] whitespace-nowrap">{name}</span>
+              <span className="mx-10 sm:mx-14 opacity-15 text-white select-none">◆</span>
+            </div>
           ))}
         </div>
       </div>

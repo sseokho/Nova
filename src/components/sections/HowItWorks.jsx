@@ -8,9 +8,9 @@ function ConnectVisual() {
     { l: 'T', bg: '#0078D4' }, { l: 'F', bg: '#F24E1E' },
   ]
   return (
-    <div className="relative w-[260px] h-[210px] sm:w-[280px] sm:h-[220px] md:w-[360px] md:h-[280px] flex items-center justify-center">
-      <div className="absolute w-[240px] h-[240px] rounded-full border border-brand/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute w-[170px] h-[170px] rounded-full border border-dashed border-brand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+    <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[340px] flex items-center justify-center overflow-hidden">
+      <div className="absolute w-[240px] h-[240px] sm:w-[260px] sm:h-[260px] rounded-full border border-brand/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute w-[166px] h-[166px] sm:w-[180px] sm:h-[180px] rounded-full border border-dashed border-brand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand to-violet flex items-center justify-center z-10 shadow-[0_0_40px_rgba(108,99,255,0.55)] relative">
         <LogoIcon size={28} />
       </div>
@@ -131,55 +131,66 @@ export default function HowItWorks({ hScrollRef, hTrackRef }) {
     <section
       id="how"
       ref={hScrollRef}
-      className="relative min-h-screen lg:h-screen bg-[#080810] overflow-hidden"
+      className="relative lg:h-screen bg-[#080810] overflow-hidden"
     >
-      <div className="absolute top-8 md:top-12 left-1/2 -translate-x-1/2 text-center z-[5] pointer-events-none px-4 w-full">
+      {/* 모바일: 인라인 플로우 타이틀 */}
+      <div className="lg:hidden text-center px-5 pt-10 pb-4">
         <Eyebrow>HOW IT WORKS</Eyebrow>
         <h2 className="text-[clamp(26px,6vw,46px)] font-black tracking-[-1px] sm:tracking-[-1.5px] mt-2 text-[#f0efff]">
           NOVA <span className="g-text">작동 방식</span>
         </h2>
       </div>
 
-      <div ref={hTrackRef} className="flex flex-col lg:flex-row h-full will-change-transform">
+      {/* 데스크탑: 절대 위치 타이틀 */}
+      <div className="hidden lg:block absolute top-8 left-1/2 -translate-x-1/2 text-center z-[5] pointer-events-none px-4 w-full">
+        <Eyebrow>HOW IT WORKS</Eyebrow>
+        <h2 className="text-[clamp(26px,6vw,46px)] font-black tracking-[-1px] sm:tracking-[-1.5px] mt-2 text-[#f0efff]">
+          NOVA <span className="g-text">작동 방식</span>
+        </h2>
+      </div>
+
+      <div ref={hTrackRef} className="flex flex-col lg:flex-row lg:h-full will-change-transform">
         {HOW_STEPS.map((step, i) => (
           <div
             key={i}
-            className={`h-panel flex-shrink-0 w-full lg:w-screen min-h-screen lg:h-full flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 lg:px-[120px] ${i === 0 ? 'pt-32 sm:pt-36 md:pt-44' : 'pt-20 sm:pt-24 md:pt-28'} lg:pt-[100px] gap-10 lg:gap-20`}
+            className="h-panel flex-shrink-0 w-full lg:w-screen lg:h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-[60px] pt-8 sm:pt-10 pb-10 lg:pt-[72px] lg:pb-0"
           >
-            <div className="panel-content flex-1 max-w-[520px] relative text-center lg:text-left">
+            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-12">
+            <div className="panel-content w-full max-w-[520px] lg:flex-1 relative text-center lg:text-left">
               <div
-                className="absolute -left-2 -top-10 sm:-top-14 md:-top-16 text-[64px] sm:text-[96px] md:text-[140px] lg:text-[180px] font-black leading-none opacity-[0.04] select-none pointer-events-none font-['Space_Grotesk']"
+                className="absolute -left-2 -top-6 sm:-top-10 md:-top-14 text-[48px] sm:text-[72px] md:text-[120px] lg:text-[160px] font-black leading-none opacity-[0.04] select-none pointer-events-none font-['Space_Grotesk']"
                 style={{ color: step.accent }}
               >
                 {step.num}
               </div>
               <div
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-[12px] font-semibold mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-[12px] font-semibold mb-3"
                 style={{ borderColor: step.accent + '50', color: step.accent, backgroundColor: step.accent + '18' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: step.accent }} />
                 STEP {step.num} · {step.label}
               </div>
-              <h2 className="text-[clamp(28px,7vw,60px)] font-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.08] mb-6 text-[#f0efff] whitespace-pre-line">
+              <h2 className="text-[clamp(26px,6vw,54px)] font-black tracking-[-1.5px] sm:tracking-[-2px] leading-[1.08] mb-4 text-[#f0efff] whitespace-pre-line">
                 {step.title}
               </h2>
-              <p className="text-[15px] md:text-[17px] text-[rgba(240,239,255,0.5)] leading-[1.8] break-keep max-w-[400px] mx-auto lg:mx-0">
+              <p className="text-[14px] md:text-[16px] text-[rgba(240,239,255,0.5)] leading-[1.75] break-keep max-w-[400px] mx-auto lg:mx-0">
                 {step.desc}
               </p>
             </div>
 
-            <div className="panel-visual flex-1 flex items-center justify-center w-full">
-              <div className="rounded-3xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl p-5 sm:p-6 md:p-9 flex items-center justify-center w-full max-w-[420px] min-h-[200px] md:min-h-[340px]">
+            <div className="panel-visual flex-none lg:flex-1 flex items-center justify-center w-full">
+              <div className="rounded-3xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl p-4 sm:p-5 md:p-6 flex items-center justify-center w-full max-w-[420px] min-h-[240px] sm:min-h-[280px] md:min-h-[320px]">
                 {step.visual}
               </div>
+            </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 gap-2 z-10">
+      <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 gap-3 z-10">
         {HOW_STEPS.map((_, i) => (
-          <div key={i} data-step-dot className="h-[3px] w-8 rounded-full bg-white/30 origin-left" />
+          <div key={i} data-step-dot className="h-[3px] w-8 rounded-full bg-white/30" />
         ))}
       </div>
 

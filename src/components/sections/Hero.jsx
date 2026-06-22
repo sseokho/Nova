@@ -1,6 +1,7 @@
 import PrimaryBtn from '../ui/PrimaryBtn'
 import GhostBtn from '../ui/GhostBtn'
 import PhoneDashboard from '../phones/PhoneDashboard'
+import PCDashboard from '../phones/PCDashboard'
 
 /* Deterministic particles — computed once at module level */
 const PARTICLES = Array.from({ length: 16 }, (_, i) => {
@@ -28,7 +29,7 @@ const STATS = [
 
 export default function Hero({ heroBgRef, heroPhoneRef }) {
   return (
-    <section className="hero-section relative min-h-screen flex items-center px-6 md:px-12 lg:px-[120px] pt-[68px] overflow-hidden">
+    <section className="hero-section relative min-h-screen flex items-center px-6 md:px-12 lg:px-[80px] xl:px-[120px] pt-[68px] overflow-hidden">
       {/* Gradient blobs */}
       <div
         ref={heroBgRef}
@@ -55,8 +56,8 @@ export default function Hero({ heroBgRef, heroPhoneRef }) {
         />
       ))}
 
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-20">
-        <div className="flex-1 max-w-full lg:max-w-[580px] text-center lg:text-left">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-8 xl:gap-16">
+        <div className="flex-1 max-w-full lg:max-w-[380px] xl:max-w-[460px] text-center lg:text-left">
           <div className="hero-badge inline-flex items-center gap-2 px-[14px] py-[6px] mb-7 rounded-full border border-violet/30 bg-brand/[0.12] text-xs tracking-[0.5px]">
             <span className="w-1.5 h-1.5 rounded-full bg-violet inline-block" />
             <span className="text-violet/90">AI 기반 차세대 플랫폼</span>
@@ -96,12 +97,51 @@ export default function Hero({ heroBgRef, heroPhoneRef }) {
           </div>
         </div>
 
-        <div ref={heroPhoneRef} className="flex-none relative flex items-center justify-center w-[220px] sm:w-[260px] md:w-[300px] lg:w-[340px] will-change-transform">
-          <div className="orbit-ring" />
-          <div className="orbit-dot" />
+        {/*
+          모든 화면에서 PC+폰 콤보를 표시
+          외부 컨테이너: 브레이크포인트마다 스케일된 시각적 크기에 맞춰 명시적 width/height 설정
+          내부 콘텐츠: 500px 고정 폭에 origin-top-left scale 적용
+          - 모바일(< sm)  : scale 0.62 → 310px × 236px
+          - sm (640px+)  : scale 0.78 → 390px × 295px
+          - md (768px+)  : scale 0.86 → 430px × 327px
+          - lg (1024px+) : scale 0.82 → 410px × 310px (text 사이드바이사이드)
+          - xl (1280px+) : scale 1.00 → 500px 전체 크기
+        */}
+        <div
+          ref={heroPhoneRef}
+          className="
+            flex-none relative will-change-transform
+            w-[310px] h-[236px]
+            sm:w-[390px] sm:h-[295px]
+            md:w-[430px] md:h-[327px]
+            lg:w-[410px] lg:h-[310px]
+            xl:w-[500px] xl:h-[378px]
+          "
+        >
           <div className="hero-phone-glow" />
-          <div className="animate-float-b relative z-[2]">
-            <PhoneDashboard />
+
+          {/* 스케일 래퍼: origin-top-left로 좌상단 기준 축소 */}
+          <div
+            className="
+              absolute top-0 left-0 w-[500px]
+              origin-top-left
+              [transform:scale(0.62)]
+              sm:[transform:scale(0.78)]
+              md:[transform:scale(0.86)]
+              lg:[transform:scale(0.82)]
+              xl:[transform:scale(1)]
+            "
+          >
+            <div className="animate-float-pc">
+              <PCDashboard />
+            </div>
+            <div className="absolute bottom-[-8px] right-[10px] z-10">
+              <div className="animate-float-b" style={{ transformOrigin: 'bottom right' }}>
+                <div style={{ transform: 'scale(0.68)', transformOrigin: 'bottom right' }}>
+                  <PhoneDashboard />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
