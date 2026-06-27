@@ -39,7 +39,41 @@ export default function App() {
         .from('.hero-desc',   { y: 28, opacity: 0, duration: 0.75, ease: 'power2.out' }, '-=0.5')
         .from('.hero-cta',    { y: 22, opacity: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.45')
         .from('.hero-stats',  { y: 18, opacity: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.4')
-        .from(heroPhoneRef.current, { y: 70, opacity: 0, duration: 1.3, ease: 'power3.out' }, 0.15)
+        .add(() => {
+          const phone = heroPhoneRef.current
+          const glow  = phone.querySelector('.hero-phone-glow')
+
+          const pt = gsap.timeline()
+
+          // ① 글로우 폭발
+          pt.fromTo(glow,
+            { scale: 0, opacity: 0 },
+            { scale: 3.2, opacity: 1, duration: 0.5, ease: 'expo.out' }
+          )
+
+          // ② 폰 블러 + 3D 플라이인
+          pt.fromTo(phone,
+            { opacity: 0, scale: 0.28, rotationY: -62, rotationX: 24,
+              z: -700, filter: 'blur(24px)', transformPerspective: 1400,
+              transformOrigin: '50% 65%' },
+            { opacity: 1, scale: 1.08, rotationY: 4, rotationX: -3,
+              z: 0, filter: 'blur(0px)',
+              duration: 1.0, ease: 'expo.out' },
+            '-=0.2'
+          )
+
+          // ③ 일래스틱 바운스 정착
+          pt.to(phone,
+            { scale: 1, rotationY: 0, rotationX: 0,
+              duration: 0.9, ease: 'elastic.out(1, 0.45)' }
+          )
+
+          // ④ 글로우 안착
+          pt.to(glow,
+            { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out' },
+            '-=0.7'
+          )
+        }, 0.25)
 
       /* 2 ── Nav background on scroll */
       ScrollTrigger.create({
