@@ -33,6 +33,7 @@ export default function App() {
     const ctx = gsap.context(() => {
 
       /* 1 ── Hero entrance */
+      gsap.set(heroPhoneRef.current, { opacity: 0 })
       gsap.timeline({ delay: 0.1 })
         .from('.hero-badge',  { y: 24, opacity: 0, duration: 0.6, ease: 'power2.out' })
         .from('.hero-title',  { y: 44, opacity: 0, duration: 0.9, ease: 'power3.out' }, '-=0.35')
