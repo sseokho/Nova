@@ -153,9 +153,9 @@ export default function HowItWorks({ hScrollRef, hTrackRef }) {
         {HOW_STEPS.map((step, i) => (
           <div
             key={i}
-            className="h-panel flex-shrink-0 w-full lg:w-screen lg:h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-[60px] pt-8 sm:pt-10 pb-10 lg:pt-[72px] lg:pb-0"
+            className="h-panel flex-shrink-0 w-full lg:w-[80vw] lg:h-full flex items-center justify-center px-5 sm:px-8 md:px-12 lg:px-[60px] pt-6 sm:pt-8 pb-8 lg:pt-[72px] lg:pb-0"
           >
-            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-12">
+            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-12">
             <div className="panel-content w-full max-w-[520px] lg:flex-1 relative text-center lg:text-left">
               <div
                 className="absolute -left-2 -top-6 sm:-top-10 md:-top-14 text-[48px] sm:text-[72px] md:text-[120px] lg:text-[160px] font-black leading-none opacity-[0.04] select-none pointer-events-none font-['Space_Grotesk']"

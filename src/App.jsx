@@ -134,7 +134,17 @@ export default function App() {
         )
       }
 
-      /* 8 ── Card hover: feat-card 3D tilt + lift, p-card simple lift */
+      /* 8 ── Gallery phones hover — pop forward */
+      gsap.utils.toArray('.gallery-pop').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, { z: 100, scale: 1.06, y: -14, zIndex: 10, duration: 0.4, ease: 'power2.out' })
+        })
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, { z: 0, scale: 1, y: 0, zIndex: 1, duration: 0.5, ease: 'power2.out' })
+        })
+      })
+
+      /* 9 ── Card hover: feat-card 3D tilt + lift, p-card simple lift */
       gsap.utils.toArray('.feat-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const r = card.getBoundingClientRect()

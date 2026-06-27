@@ -9,7 +9,7 @@ export default function PhoneGallery3() {
   ]
   const syncs = [['Slack 메시지 분류', '방금'], ['Gmail 자동 답변', '3분 전'], ['Notion 문서 업데이트', '12분 전']]
   return (
-    <div className="gallery-pop flex flex-col items-center gap-5">
+    <div className="gallery-pop flex flex-col items-center gap-5 cursor-pointer will-change-transform">
       <div className="animate-float-g3 [filter:drop-shadow(0_32px_64px_rgba(0,0,0,0.7))]">
         <div className="w-[220px] h-[476px] bg-[linear-gradient(158deg,#1a1929,#0e0d1a)] rounded-[46px] border-[1.5px] border-white/[0.09] shadow-[0_32px_80px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.07)] relative">
           <div className="absolute inset-[3.5px] bg-[#09091a] rounded-[42px] overflow-hidden">

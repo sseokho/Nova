@@ -17,7 +17,7 @@ export default function Gallery() {
           어떤 상황에서도 NOVA는 당신 곁에 있습니다.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center gap-14 lg:gap-10 relative z-[2]">
+      <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center gap-14 lg:gap-10 relative z-[2] [perspective:1400px] [transform-style:preserve-3d]">
         <PhoneGallery1 />
         <PhoneGallery2 />
         <PhoneGallery3 />

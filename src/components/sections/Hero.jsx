@@ -56,13 +56,13 @@ export default function Hero({ heroBgRef, heroPhoneRef }) {
         />
       ))}
 
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-8 xl:gap-16">
-        <div className="flex-1 max-w-full lg:max-w-[380px] xl:max-w-[460px] text-center lg:text-left">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-4 xl:gap-8">
+        <div className="flex-1 max-w-full lg:max-w-[340px] xl:max-w-[420px] text-center lg:text-left">
           <div className="hero-badge inline-flex items-center gap-2 px-[14px] py-[6px] mb-7 rounded-full border border-violet/30 bg-brand/[0.12] text-xs tracking-[0.5px]">
             <span className="w-1.5 h-1.5 rounded-full bg-violet inline-block" />
             <span className="text-violet/90">AI 기반 차세대 플랫폼</span>
           </div>
-          <h1 className="hero-title text-[clamp(40px,9vw,88px)] font-black leading-[1.06] tracking-[-1.5px] sm:tracking-[-2px] mb-6 text-[#f0efff] break-keep">
+          <h1 className="hero-title text-[clamp(32px,6vw,64px)] font-black leading-[1.06] tracking-[-1.5px] sm:tracking-[-2px] mb-6 text-[#f0efff] break-keep">
             업무의 미래를<br />
             <span className="g-text">지금 경험하세요</span>
           </h1>
@@ -111,11 +111,11 @@ export default function Hero({ heroBgRef, heroPhoneRef }) {
           ref={heroPhoneRef}
           className="
             flex-none relative will-change-transform
-            w-[310px] h-[236px]
-            sm:w-[390px] sm:h-[295px]
-            md:w-[430px] md:h-[327px]
-            lg:w-[410px] lg:h-[310px]
-            xl:w-[500px] xl:h-[378px]
+            w-[320px] h-[244px]
+            sm:w-[400px] sm:h-[304px]
+            md:w-[450px] md:h-[342px]
+            lg:w-[520px] lg:h-[395px]
+            xl:w-[600px] xl:h-[456px]
           "
         >
           <div className="hero-phone-glow" />
@@ -125,11 +125,11 @@ export default function Hero({ heroBgRef, heroPhoneRef }) {
             className="
               absolute top-0 left-0 w-[500px]
               origin-top-left
-              [transform:scale(0.62)]
-              sm:[transform:scale(0.78)]
-              md:[transform:scale(0.86)]
-              lg:[transform:scale(0.82)]
-              xl:[transform:scale(1)]
+              [transform:scale(0.64)]
+              sm:[transform:scale(0.80)]
+              md:[transform:scale(0.90)]
+              lg:[transform:scale(1.04)]
+              xl:[transform:scale(1.20)]
             "
           >
             <div className="animate-float-pc">

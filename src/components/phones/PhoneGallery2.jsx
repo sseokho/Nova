@@ -11,7 +11,7 @@ export default function PhoneGallery2() {
     { k: '절약 비용', v: '₩ 2.4M', cn: 'text-violet' },
   ]
   return (
-    <div className="gallery-pop flex flex-col items-center gap-5">
+    <div className="gallery-pop flex flex-col items-center gap-5 cursor-pointer will-change-transform">
       <div className="animate-float-g2 [filter:drop-shadow(0_40px_80px_rgba(108,99,255,0.35))_drop-shadow(0_20px_40px_rgba(0,0,0,0.8))]">
         <div className="w-[220px] h-[476px] sm:w-[248px] sm:h-[536px] bg-[linear-gradient(158deg,#1c1b2e,#0f0e1c)] rounded-[46px] sm:rounded-[52px] border-[1.5px] border-brand/25 shadow-[0_48px_96px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] relative">
           <div className="absolute inset-1 bg-[#09091a] rounded-[42px] sm:rounded-[48px] overflow-hidden">

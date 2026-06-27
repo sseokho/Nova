@@ -6,7 +6,7 @@ export default function PhoneGallery1() {
     { cn: 'bg-white/[0.04] border border-white/[0.08]', dot: 'bg-[#f59e0b]', conn: '#f59e0b', title: 'CRM 자동 업데이트', sub: 'Salesforce 연동' },
   ]
   return (
-    <div className="gallery-pop flex flex-col items-center gap-5">
+    <div className="gallery-pop flex flex-col items-center gap-5 cursor-pointer will-change-transform">
       <div className="animate-float-g1 [filter:drop-shadow(0_32px_64px_rgba(0,0,0,0.7))]">
         <div className="w-[220px] h-[476px] bg-[linear-gradient(158deg,#1a1929,#0e0d1a)] rounded-[46px] border-[1.5px] border-white/[0.09] shadow-[0_32px_80px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.07)] relative">
           <div className="absolute inset-[3.5px] bg-[#09091a] rounded-[42px] overflow-hidden">
